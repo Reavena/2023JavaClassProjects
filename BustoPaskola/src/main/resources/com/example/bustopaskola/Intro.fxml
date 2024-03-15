@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bustopaskola.Controllers.MainController">
+   <children>
+      <AnchorPane prefHeight="589.0" prefWidth="479.0">
+         <children>
+            <VBox alignment="CENTER" layoutY="-10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" spacing="20.0" AnchorPane.bottomAnchor="-34.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-10.0">
+              <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+              </padding>
+               <TextField alignment="CENTER" editable="false" text="Būsto Paskolos Skaičiuoklė">
+                  <font>
+                     <Font name="System Bold Italic" size="14.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </TextField>
+               <TextField editable="false" prefHeight="26.0" prefWidth="381.0" promptText="ds" text="Paskolos suma:">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="-10.0" />
+                  </VBox.margin>
+               </TextField>
+               <TextField fx:id="textPaskolosSuma" prefHeight="26.0" prefWidth="388.0" promptText="Įrašykite pageidaujamą paskolos sumą. ">
+                  <font>
+                     <Font name="System Italic" size="12.0" />
+                  </font>
+               </TextField>
+               <TextField editable="false" prefHeight="26.0" prefWidth="254.0" text="Paskolos terminas:">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </TextField>
+               <Slider fx:id="metaiSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="15.0" />
+               <Label fx:id="metaiLabel" text="15 m.">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+                  <padding>
+                     <Insets top="-15.0" />
+                  </padding>
+               </Label>
+               <Slider fx:id="menesiaiSlider" blockIncrement="1.0" majorTickUnit="1.0" max="12.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" />
+               <Label fx:id="menesiaiLabel" text="0 mėn.">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+                  <padding>
+                     <Insets top="-15.0" />
+                  </padding>
+               </Label>
+               <TextField editable="false" text="Metiniai procentai:">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="-10.0" />
+                  </VBox.margin>
+               </TextField>
+               <TextField fx:id="textMetiniaiProcentai" promptText="Įrašykite metinius procentus." />
+               <TextField text="Pasirinkite paskolos tipą:">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="-10.0" />
+                  </VBox.margin>
+               </TextField>
+               <ChoiceBox fx:id="choicePaskolosTipas" prefWidth="150.0">
+                  <VBox.margin>
+                     <Insets bottom="10.0" />
+                  </VBox.margin></ChoiceBox>
+              <Button onAction="#calculate" prefHeight="16.0" prefWidth="87.0" text="Calculate">
+                  <VBox.margin>
+                     <Insets bottom="-10.0" />
+                  </VBox.margin>
+               </Button>
+               <Button fx:id="buttonCompare" mnemonicParsing="false" onAction="#switchToScene2" text="Compare">
+                  <VBox.margin>
+                     <Insets bottom="-10.0" />
+                  </VBox.margin></Button>
+               <Label fx:id="warningLabel" textFill="RED">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font>
+               </Label>
+               <TextField editable="false" text="Paskolos atidėjimas:">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="-10.0" />
+                  </VBox.margin>
+               </TextField>
+               <TextField fx:id="textKiekMen" promptText="Mėnesių kiekis" />
+               <TextField fx:id="textNuoMen" promptText="Nuo kurio mėnesio">
+                  <VBox.margin>
+                     <Insets top="-15.0" />
+                  </VBox.margin>
+               </TextField>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <BorderPane layoutX="525.0" layoutY="24.0" prefHeight="782.0" prefWidth="522.0">
+         <center>
+            <TableView fx:id="tableView" prefHeight="788.0" prefWidth="545.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="columnMen" prefWidth="75.0" text="Mėn." />
+                <TableColumn fx:id="columnImoka" prefWidth="100.0" text="Mėn. Įmoka" />
+                  <TableColumn fx:id="columnKreditai" prefWidth="100.0" text="Kreditai" />
+                  <TableColumn fx:id="columnPalūkanos" prefWidth="100.0" text="Palūkanos" />
+                  <TableColumn fx:id="columnNesumok" prefWidth="150.0" text="Nesumokėti kreditai" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
