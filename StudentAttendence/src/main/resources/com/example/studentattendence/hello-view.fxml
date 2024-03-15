@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentattendence.HelloController">
+
+    <HBox>
+        <TextField fx:id="studentID" promptText="Student ID" />
+        <TextField fx:id="studentGroup" promptText="Student Group" />
+        <DatePicker fx:id="studentDate" promptText="Date" />
+        <CheckBox fx:id="studentAttendance" text="Attended" />
+        <Button onAction="#addStudentClick" text="Add Student" />
+    </HBox>
+
+    <HBox>
+        <Button onAction="#removeGroupClick" text="Remove Group" />
+        <Button onAction="#removeStudentClick" text="Remove Student" />
+    </HBox>
+
+    <HBox>
+        <DatePicker fx:id="listDateFrom" promptText="From Date" />
+        <DatePicker fx:id="listDateUntil" promptText="Until Date" />
+        <ComboBox fx:id="selectScope" promptText="Select Scope" />
+        <Button onAction="#listStudentsClick" text="List Students" />
+    </HBox>
+
+    <HBox>
+        <Button onAction="#saveCSVClick" text="Save CSV" />
+        <Button onAction="#loadCSVClick" text="Load CSV" />
+      <Button mnemonicParsing="false" onAction="#savePDFClick" text="Save PDF" />
+    </HBox>
+
+    <TableView fx:id="table" prefHeight="400.0" prefWidth="622.0">
+        <columns>
+            <TableColumn fx:id="tableDate" text="Date" />
+            <TableColumn fx:id="tableID" text="ID" />
+            <TableColumn fx:id="tableAttended" text="Attended" />
+            <TableColumn fx:id="tableGroup" text="Group" />
+        </columns>
+    </TableView>
+
+</VBox>
